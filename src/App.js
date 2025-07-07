@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
 import {Preload, OrbitControls } from "@react-three/drei";
 import Modal from "./Components/Modal";
@@ -50,28 +50,40 @@ const infoStore = [
 
 
 
-const Portals=({modal,setModal})=> {
+// In src/App.js - Update the Portals component
+const Portals = ({ modal, setModal }) => {
   const [which, setWhich] = useState(0);
   const { link, ...props } = Directionstore[which];
-  const { sort,pos} = infoStore[which];
-  const maps = useLoader(THREE.TextureLoader, Directionstore.map((entry) => entry.url)) //maps is an array of textures
-
+  const { sort, pos } = infoStore[which];
+  
+  // Only load current texture and next/previous ones
+  const maps = useLoader(THREE.TextureLoader, Directionstore.map((entry) => entry.url));
+  
+  // Add cleanup effect
+  useEffect(() => {
+    return () => {
+      // Dispose textures when component unmounts
+      maps.forEach(texture => {
+        if (texture && texture.dispose) {
+          texture.dispose();
+        }
+      });
+    };
+  }, [maps]);
 
   return (
     <Dome 
       setModal={setModal}
       modal={modal}
-      // onClick={() => setWhich(link)}
       which={which}
       setWhich={setWhich}
       {...props}
       texture={maps[which]}
       sort={sort}
       pos={pos}
-      // col={col}
     />
   );
-}
+};
 
 function App() {
   const [modal, setModal] = useState(false);

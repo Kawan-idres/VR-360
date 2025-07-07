@@ -1,0 +1,328 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #171720;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow: hidden;
+}
+
+button{
+  cursor: pointer;
+}
+
+/* slider */
+
+
+.slider {
+  position: relative;
+  /* height: 25vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.right-arrow {
+  position: absolute;
+  top: 50%;
+  right: 20%;
+  font-size: 3rem;
+  color: #000;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.left-arrow {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  font-size: 3rem;
+  color: #000;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.slide {
+  opacity: 0;
+  transition-duration: 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transition-duration: 1s;
+  transform: scale(1.08);
+}
+
+
+/* slider */
+
+
+
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  position: fixed;
+  overflow: hidden;
+  overscroll-behavior-y: none;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  /* color: black; */
+}
+
+.container{
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.spot{
+  cursor: pointer;
+  font-weight: bold;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 0.1s ease-in-out;
+  
+}
+.spot:hover{
+  transform: scale(1.3);
+  color: white;
+
+}
+.mark{
+  color: white;
+  font-size: 1.5rem;
+  fill: white;
+}
+.rotate-p{
+  font-size: 1rem;
+  margin-top: 20px;
+  font-weight: bold;
+}
+/* modal */
+.modal{
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 20;
+    background-color: rgba(0, 0, 0, 0.75);
+    animation: slide-down 1s ease-out backwards;
+
+   
+}
+.modal-center{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+.modal-content{
+  position: fixed;
+  top: 20vh;
+  display: flex;
+  justify-content: space-between  ;
+
+  /* left: 5%; */
+  width: 80%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 100;
+  text-align: center;
+  margin: 0 auto;
+  animation: slide-down 1s ease-out forwards;
+  
+
+}
+.infos{
+  max-width: 350px;
+  /* background-color: #4158D0; */
+}
+.right-arrow {
+    
+  top: 70%;
+  right: 15%;
+  font-size: 3rem;
+  color: white;
+  
+}
+
+.left-arrow {
+ 
+  top: 70%;
+  left: 15%;
+  font-size: 3rem;
+  color: white;
+
+ 
+}
+.music-modal-content{
+  position: fixed;
+  top: 30vh;
+  width: 80%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 30;
+  text-align: center;
+  margin: 0 auto;
+  animation: slide-down 1s ease-out forwards;
+  
+}
+.modal-h1{
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.modal-p{
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+.logo360{
+  width: 500px;
+  height: 500px;
+  background-color:white ;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.img360{
+  width: 100%;
+  height: 50%;
+  z-index: 100;
+}
+
+/* Sound */
+
+.sound-btn-cont{
+  display: inline-block;
+  position: fixed;
+  z-index: 100;
+  bottom: 20px;
+  left: 20px;
+
+
+}
+.sound-btn{
+  background-color:hotpink;
+  width: 120px;
+  height: 50px;
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  
+  
+}
+.music-btn-cont{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+}
+.music-btn{
+  background-color:hotpink;
+  width: 60px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;  
+  border-radius: 10px;
+  background-color: #85FFBD;
+background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+
+}
+
+.music-btn:hover{
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+
+}
+
+
+@media (min-width: 768px) {
+  .modal-content,.music-modal-content{
+    width: 40rem; 
+    
+  }
+
+ 
+}
+@media (max-width: 768px) {
+
+  .modal-content{
+    top: 10vh;
+    display: flex;
+    gap:1rem ;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    
+    
+  } 
+  .info{
+    width: 100%;
+    max-width: 100%;
+  }
+  .right-arrow,.left-arrow {
+    font-size: 2rem;
+    
+  }
+  
+ 
+ 
+
+  
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
